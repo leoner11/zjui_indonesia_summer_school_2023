@@ -14,7 +14,7 @@ Engine_H = None
 Engine_W = None
 
 # Enable Logging
-logging.basicConfig(level=logging.INFO, format='%(name)s :: %(levelname)-8s :: %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s :: %(name)s :: %(levelname)-8s :: %(message)s (%(filename)s:%(lineno)d)')
 logger = logging.getLogger(__name__)
 
 # Model Configuration
@@ -40,7 +40,10 @@ def detect_flag(img: np.array):
     bboxes, scores, labels = det_postprocess(data)
     bboxes -= dwdh
     bboxes /= ratio
-    return (bboxes, scores, labels)
+    bboxes = list(bboxes)
+    scores = list(scores)
+    labels = list(labels)
+    return bboxes, scores, labels
 
 def visualization(img: np.array, bboxes: np.array, scores: np.array, labels: np.array):
     draw = img.copy()

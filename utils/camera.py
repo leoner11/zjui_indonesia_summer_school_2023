@@ -1,7 +1,7 @@
 import cv2
 import logging
 
-logging.basicConfig(level=logging.INFO, format='%(name)s :: %(levelname)-8s :: %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s :: %(name)s :: %(levelname)-8s :: %(message)s (%(filename)s:%(lineno)d)')
 logger = logging.getLogger(__name__)
 
 cap = None

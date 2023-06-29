@@ -24,13 +24,13 @@ COLORS = {
     for i, cls in enumerate(CLASSES)
 }
 
-def setup_env():
+def setup_env() -> None:
     global Engine, Engine_H, Engine_W
     Engine = TRTEngine("model/yolov8.engine")
     Engine_H, Engine_W = Engine.inp_info[0].shape[-2:]
     logger.info('Vision environment setup complete')
 
-def detect_flag(img: np.array):
+def detect_flag(img: np.ndarray) -> tuple([list, list, list]):
     bgr_img, ratio, dwdh = letterbox(img, (Engine_W, Engine_H))
     rgb_img = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2RGB)
     tensor = blob(rgb_img, return_seg=False)
@@ -45,7 +45,7 @@ def detect_flag(img: np.array):
     labels = list(labels)
     return bboxes, scores, labels
 
-def visualization(img: np.array, bboxes: np.array, scores: np.array, labels: np.array):
+def visualization(img: np.ndarray, bboxes: list, scores: list, labels: list) -> bool:
     draw = img.copy()
     for (bbox, score, label) in zip(bboxes, scores, labels):
         bbox = bbox.round().astype(np.int32).tolist()

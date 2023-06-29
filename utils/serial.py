@@ -7,17 +7,21 @@ logger = logging.getLogger(__name__)
 
 ser = None
 
-def setup_env():
+def setup_env() -> None:
     global ser
     ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
+    for i in range(4):
+        ser.write('l {} 0\r\n'.format(i).encode('ascii'))
+    sleep(0.1)
+    ser.write(b'servo 0\r\n')
     logger.info('Serial environment setup complete')
 
-def send_trigger():
-    ser.write(b't 1\n')
-    sleep(0.01)
+def send_trigger() -> None:
+    ser.write(b'servo 180\r\n')
+    sleep(0.1)
     logger.info('Trigger sent')
     
-def send_set_led(index):
-    ser.write('l {}\n'.format(index).encode('ascii'))
-    sleep(0.01)
-    logger.info('LED {} set'.format(index))
+def set_led(index: int, state: bool) -> None:
+    ser.write('l {} {}\r\n'.format(index, int(state)).encode('ascii'))
+    sleep(0.1)
+    logger.info('LED {} set to {}'.format(index, state))

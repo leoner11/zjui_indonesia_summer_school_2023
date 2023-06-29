@@ -30,7 +30,7 @@ def setup_env() -> None:
     Engine_H, Engine_W = Engine.inp_info[0].shape[-2:]
     logger.info('Vision environment setup complete')
 
-def detect_flag(img: np.ndarray) -> tuple([list, list, list]):
+def detect_flag(img: np.ndarray) -> tuple:
     bgr_img, ratio, dwdh = letterbox(img, (Engine_W, Engine_H))
     rgb_img = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2RGB)
     tensor = blob(rgb_img, return_seg=False)

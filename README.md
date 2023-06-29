@@ -26,7 +26,7 @@ cd zjui_indonesia_summer_school_2023
 This usually takes 10-20 minutes on Jetson Nano, wait patiently until it ends. It is generally **not recommended** to open any other program during the process. This command will generate a TensorRT engine file `yolov8.engine` in `model` folder. You'll need it to make `utils.vision` function properly. Once `yolov8.engine` is generated, you don't need to run this command again.
 
 ### 3. Write main.py and test your code
-Write your program in `main.py`. You can refer to the project wiki for information about the APIs provided.
+Write your program in `main.py`. You can refer to the [project wiki](https://github.com/nice-mee/zjui_indonesia_summer_school_2023/wiki) for information about the APIs provided.
 
 I would recommended you to write the camera streaming and detection part first, and test your code with the following command:
 ```bash

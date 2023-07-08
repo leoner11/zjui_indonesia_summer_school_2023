@@ -1,6 +1,16 @@
 # ZJUI Indonesia Summer School 2023
 This is the repository for ZJUI Indonesia Summer School 2023.
 
+- [ZJUI Indonesia Summer School 2023](#zjui-indonesia-summer-school-2023)
+  - [Prerequisites](#prerequisites)
+    - [Hardware](#hardware)
+    - [Software](#software)
+  - [Procedure (for students)](#procedure-for-students)
+    - [1. Clone the repository](#1-clone-the-repository)
+    - [2. Build TensorRT engine](#2-build-tensorrt-engine)
+    - [3. Write main.py and test your code](#3-write-mainpy-and-test-your-code)
+    - [4. Test your code with serial connection](#4-test-your-code-with-serial-connection)
+
 ## Prerequisites
 ### Hardware
 - Jetson Nano Developer Kit / Jetson TX2 Developer Kit

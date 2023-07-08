@@ -7,9 +7,9 @@ logger = logging.getLogger(__name__)
 
 cap = None
 
-def setup_env() -> None:
+def setup_env(camera_index : int = 0) -> None:
     global cap
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(camera_index)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
     cap.set(cv2.CAP_PROP_FPS, 30)

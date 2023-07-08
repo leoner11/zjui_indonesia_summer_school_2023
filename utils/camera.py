@@ -9,7 +9,10 @@ cap = None
 
 def setup_env() -> None:
     global cap
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(1)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+    cap.set(cv2.CAP_PROP_FPS, 30)
     logger.info('Camera environment setup complete')
 
 def capture_img() -> np.ndarray:

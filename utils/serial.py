@@ -13,11 +13,10 @@ def setup_env() -> None:
     for i in range(4):
         ser.write('l {} 0\r\n'.format(i).encode('ascii'))
     sleep(0.1)
-    ser.write(b'servo 0\r\n')
     logger.info('Serial environment setup complete')
 
-def send_trigger() -> None:
-    ser.write(b'servo 180\r\n')
+def set_servo(degree: int) -> None:
+    ser.write('servo {}\r\n'.format(degree).encode('ascii'))
     sleep(0.1)
     logger.info('Trigger sent')
     
